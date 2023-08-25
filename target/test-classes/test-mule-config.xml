@@ -1,0 +1,20 @@
+<mule xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+      xmlns:http="http://www.mulesoft.org/schema/mule/http"
+      xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:conjurmule="http://www.mulesoft.org/schema/mule/conjurmule" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/conjurmule http://www.mulesoft.org/schema/mule/conjurmule/current/mule-conjurmule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+
+    <conjurmule:config name="config" configId="configId">
+        <conjurmule:connection requiredParameter="aValue" />
+    </conjurmule:config>
+
+    <flow name="sayHiFlow">
+        <conjurmule:say-hi person="Mariano Gonzalez"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <conjurmule:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>
