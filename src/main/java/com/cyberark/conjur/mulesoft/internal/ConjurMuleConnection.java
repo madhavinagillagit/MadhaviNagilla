@@ -7,9 +7,12 @@ package com.cyberark.conjur.mulesoft.internal;
 public final class ConjurMuleConnection {
 
   private final String id;
+ 
+  
 
   public ConjurMuleConnection(String id) {
     this.id = id;
+   
   }
 
   public String getId() {

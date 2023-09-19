@@ -33,12 +33,10 @@ Default configuration
 | Config Id a| String |  |  | *x*{nbsp}
 | Conjur Account a| String |  |  | *x*{nbsp}
 | Conjur Appliance Url a| String |  |  | *x*{nbsp}
-| Conjur Authn Login a| String |  |  | {nbsp}
-| Conjur Api Key a| String |  |  | {nbsp}
-| Conjur Ssl Certificate a| String |  |  | {nbsp}
-| Conjur Cert File a| String |  |  | {nbsp}
-| Conjur Jwt Token Path a| String |  |  | {nbsp}
-| Conjur Authenticator Id a| String |  |  | {nbsp}
+| Conjur Authn Login a| String |  |  | *x*{nbsp}
+| Conjur Api Key a| String |  |  | *x*{nbsp}
+| Conjur Ssl Certificate a| String |  |  | *x*{nbsp}
+| Conjur Cert File a| String |  |  | *x*{nbsp}
 | Expiration Policy a| <<ExpirationPolicy>> |  +++Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit.+++ |  | {nbsp}
 |======================
 

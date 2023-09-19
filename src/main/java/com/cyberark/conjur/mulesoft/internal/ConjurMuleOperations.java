@@ -12,7 +12,7 @@ import org.mule.runtime.extension.api.annotation.param.Connection;
  */
 public class ConjurMuleOperations {
 
-	  /**
+	/**
 	   * Example of an operation that uses the configuration and a connection instance to perform some action.
 	   */
 	  @MediaType(value = ANY, strict = false)

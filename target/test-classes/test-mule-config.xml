@@ -1,20 +1,25 @@
 <mule xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-      xmlns:http="http://www.mulesoft.org/schema/mule/http"
+      xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties"
       xmlns="http://www.mulesoft.org/schema/mule/core"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:conjurmule="http://www.mulesoft.org/schema/mule/conjurmule" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-          http://www.mulesoft.org/schema/mule/conjurmule http://www.mulesoft.org/schema/mule/conjurmule/current/mule-conjurmule.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:demo="http://www.mulesoft.org/schema/mule/demo" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/demo http://www.mulesoft.org/schema/mule/demo/current/mule-demo.xsd
+http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd">
 
-    <conjurmule:config name="config" configId="configId">
-        <conjurmule:connection requiredParameter="aValue" />
-    </conjurmule:config>
+    <demo:config name="config" configId="configId">
+        <demo:connection requiredParameter="aValue" />
+    </demo:config>
+    <configuration-properties file="conjur.properties"/>
 
-    <flow name="sayHiFlow">
-        <conjurmule:say-hi person="Mariano Gonzalez"/>
+   <flow name="sayHiFlow">
+        <demo:say-hi person="Mariano Gonzalez"/>
     </flow>
 
     <flow name="retrieveInfoFlow">
-        <conjurmule:retrieve-info config-ref="config"/>
+        <demo:retrieve-info config-ref="config"/>
+    </flow>
+    <flow name="retrieveAccessToken">
+    
+    <demo:retrieve-access-token config-ref="config"/>
     </flow>
 
 </mule>

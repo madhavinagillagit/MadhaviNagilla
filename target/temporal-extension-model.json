@@ -1,14 +1,14 @@
 {
   "name": "ConjurVaultConnector",
   "description": "This is the main class of an extension, is the entry point from which configurations, connection providers, operations and sources are going to be declared.",
-  "version": "1.0.1",
+  "version": "1.0.80",
   "vendor": "Mulesoft",
   "category": "COMMUNITY",
   "xmlDsl": {
     "prefix": "conjurvaultconnector",
     "namespace": "http://www.mulesoft.org/schema/mule/conjurvaultconnector",
     "schemaLocation": "http://www.mulesoft.org/schema/mule/conjurvaultconnector/current/mule-conjurvaultconnector.xsd",
-    "schemaVersion": "1.0.1",
+    "schemaVersion": "1.0.80",
     "xsdFileName": "mule-conjurvaultconnector.xsd"
   },
   "resources": [],
@@ -114,7 +114,7 @@
                 "type": "String"
               },
               "hasDynamicType": false,
-              "required": false,
+              "required": true,
               "isConfigOverride": false,
               "expressionSupport": "SUPPORTED",
               "role": "BEHAVIOUR",
@@ -140,7 +140,7 @@
                 "type": "String"
               },
               "hasDynamicType": false,
-              "required": false,
+              "required": true,
               "isConfigOverride": false,
               "expressionSupport": "SUPPORTED",
               "role": "BEHAVIOUR",
@@ -166,7 +166,7 @@
                 "type": "String"
               },
               "hasDynamicType": false,
-              "required": false,
+              "required": true,
               "isConfigOverride": false,
               "expressionSupport": "SUPPORTED",
               "role": "BEHAVIOUR",
@@ -192,7 +192,7 @@
                 "type": "String"
               },
               "hasDynamicType": false,
-              "required": false,
+              "required": true,
               "isConfigOverride": false,
               "expressionSupport": "SUPPORTED",
               "role": "BEHAVIOUR",
@@ -209,58 +209,6 @@
               },
               "allowedStereotypeModels": [],
               "name": "conjurCertFile",
-              "description": "",
-              "modelProperties": {}
-            },
-            {
-              "type": {
-                "format": "java",
-                "type": "String"
-              },
-              "hasDynamicType": false,
-              "required": false,
-              "isConfigOverride": false,
-              "expressionSupport": "SUPPORTED",
-              "role": "BEHAVIOUR",
-              "dslConfiguration": {
-                "allowsInlineDefinition": true,
-                "allowsReferences": true,
-                "allowTopLevelDefinition": false
-              },
-              "layoutModel": {
-                "password": false,
-                "text": false,
-                "query": false,
-                "order": 8
-              },
-              "allowedStereotypeModels": [],
-              "name": "conjurJwtTokenPath",
-              "description": "",
-              "modelProperties": {}
-            },
-            {
-              "type": {
-                "format": "java",
-                "type": "String"
-              },
-              "hasDynamicType": false,
-              "required": false,
-              "isConfigOverride": false,
-              "expressionSupport": "SUPPORTED",
-              "role": "BEHAVIOUR",
-              "dslConfiguration": {
-                "allowsInlineDefinition": true,
-                "allowsReferences": true,
-                "allowTopLevelDefinition": false
-              },
-              "layoutModel": {
-                "password": false,
-                "text": false,
-                "query": false,
-                "order": 9
-              },
-              "allowedStereotypeModels": [],
-              "name": "conjurAuthenticatorId",
               "description": "",
               "modelProperties": {}
             },
@@ -360,7 +308,7 @@
                 "password": false,
                 "text": false,
                 "query": false,
-                "order": 10,
+                "order": 8,
                 "tabName": "Advanced"
               },
               "allowedStereotypeModels": [],

@@ -1,13 +1,14 @@
-package com.cyberark.conjur.mulesoft.internal;
+package com.cyberark.conjur.domain;
+
 
 import org.mule.runtime.extension.api.annotation.Operations;
 import org.mule.runtime.extension.api.annotation.connectivity.ConnectionProviders;
 import org.mule.runtime.extension.api.annotation.param.Parameter;
 
+import com.cyberark.conjur.mulesoft.internal.ConjurMuleOperations;
 
-@Operations(ConjurMuleOperations.class)
-@ConnectionProviders(ConjurMuleConnectionProvider.class)
-public class ConjurMuleConfiguration {
+
+public class ConjurConfiguration {
 
 	@Parameter
 	private String configId;
@@ -54,5 +55,34 @@ public class ConjurMuleConfiguration {
 		return conjurCertFile;
 	}
 
+	public void setConfigId(String configId) {
+		this.configId = configId;
+	}
+
+	public void setConjurAccount(String conjurAccount) {
+		this.conjurAccount = conjurAccount;
+	}
+
+	public void setConjurApplianceUrl(String conjurApplianceUrl) {
+		this.conjurApplianceUrl = conjurApplianceUrl;
+	}
+
+	public void setConjurAuthnLogin(String conjurAuthnLogin) {
+		this.conjurAuthnLogin = conjurAuthnLogin;
+	}
+
+	public void setConjurApiKey(String conjurApiKey) {
+		this.conjurApiKey = conjurApiKey;
+	}
+
+	public void setConjurSslCertificate(String conjurSslCertificate) {
+		this.conjurSslCertificate = conjurSslCertificate;
+	}
+
+	public void setConjurCertFile(String conjurCertFile) {
+		this.conjurCertFile = conjurCertFile;
+	}
+
 
 }
+

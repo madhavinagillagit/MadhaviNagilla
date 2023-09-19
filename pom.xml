@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.cyberark.conjur</groupId>
 	<artifactId>conjur-mulesoft-connector</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.80</version>
 	<packaging>mule-extension</packaging>
-	<name>ConjurConnector Extension</name>
+	<name>ConjurConnector Refactor</name>
 
 	<parent>
 		<groupId>org.mule.extensions</groupId>
