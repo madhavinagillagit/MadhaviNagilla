@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:conjurvaultconnector="http://www.mulesoft.org/schema/mule/conjurvaultconnector" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/conjurvaultconnector http://www.mulesoft.org/schema/mule/conjurvaultconnector/current/mule-conjurvaultconnector.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="0ea56fbb-d804-4d53-a423-05ac3790dada" >
+		<http:listener-connection host="0.0.0.0" port="8090" />
+	</http:listener-config>
+	<conjurvaultconnector:config name="ConjurVaultConnector_Config" doc:name="ConjurVaultConnector Config" doc:id="7e268351-8fb2-4a84-b798-d27e778118aa" configId="1" conjurAccount="myConjurAccount" conjurApplianceUrl="https://localhost:8443" conjurAuthnLogin="host/jenkins-frontend/NG-MADHAVI-NAG" conjurApiKey="et8wd03smz4bd22jc24n3bnn5jt30edwssrrbpyrc08jpj2hmtmc" conjurSslCertificate="/Users/madhavi.nagilla/internal_conjur_oss_setup/conjur-quickstart/conjur-server.pem" conjurCertFile="/Users/madhavi.nagilla/internal_conjur_oss_setup/conjur-quickstart/conjur-server.der" >
+		<conjurvaultconnector:connection requiredParameter="1" conjurAccount="myConjurAccount" conjurApplianceUrl="https://localhost:8443" conjurAuthnLogin="host/jenkins-frontend/NG-MADHAVI-NAG" conjurApiKey="et8wd03smz4bd22jc24n3bnn5jt30edwssrrbpyrc08jpj2hmtmc" conjurSslCertificate="/Users/madhavi.nagilla/internal_conjur_oss_setup/conjur-quickstart/conjur-server.pem" conjurCertFile="/Users/madhavi.nagilla/internal_conjur_oss_setup/conjur-quickstart/conjur-server.der" key="jenkins-app/dbUserName" />
+	</conjurvaultconnector:config>
+	<flow name="muleconjurconnectorFlow" doc:id="cbeab211-b831-4ae2-bf08-892800c23eb9" >
+		<http:listener doc:name="Listener" doc:id="9534a106-20de-4699-b6d9-6b3e4d1d4b5a" config-ref="HTTP_Listener_config" path="/conjurConnector"/>
+		<logger level="INFO" doc:name="Logger" doc:id="1893e166-f4ab-40a0-9295-97043a468b2a" message="*******Before Calling Retrieve Secret********"/>
+		<conjurvaultconnector:retrieve-secret doc:name="Retrieve secret" doc:id="fbc5d519-7fe0-4c4c-8d42-3cf9797b7a3f" config-ref="ConjurVaultConnector_Config"/>
+		<logger level="INFO" doc:name="Logger" doc:id="45dc2714-4041-41a0-81dc-f91e7c15e7f4" message="********After Retrieving Secrets from Conjur**************"/>
+		<error-handler >
+			<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="c38aca9a-4ae8-4d83-a799-bbe6c5d2f299" >
+				<logger level="ERROR" doc:name="Logger" doc:id="c3ec10c3-d0ff-471c-a49d-9c500c3531cf" message="****Inside On Error Continue Logger******"/>
+			</on-error-continue>
+		</error-handler>
+	</flow>
+</mule>
