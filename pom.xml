@@ -24,32 +24,31 @@
 	</repositories>
 	<properties>
 		<app.runtime>4.4.0</app.runtime>
-		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
+		<mule.maven.plugin.version>3.8.2</mule.maven.plugin.version>
 	</properties>
-	
 	<build>
-	<plugins>
-		<plugin>
-		    <groupId>org.mule.tools.maven</groupId>
-		    <artifactId>mule-maven-plugin</artifactId>
-		    <version>${mule.maven.plugin.version}</version>
-		    <extensions>true</extensions>
-		    <configuration>
-		    	<cloudHubDeployment>
-		    		<uri>https://anypoint.mulesoft.com</uri>
-		    		<muleversion>${mule.version}</muleversion>
-		    		<username>${anypoint.username}</username>
-		    		<password>${anypoint.password}</password>
-		    		<environment>${env}</environment>
-		    		<applicationname>${appname}</applicationname>
-		    		<businessgroup>${business}</businessgroup>
-		    		<workerType>${vCore}</workerType>
-		    		<workers>${workers}</workers>
-		    		<objectStoreV2>true</objectStoreV2>
-		    	</cloudHubDeployment>
-		    </configuration>
-		</plugin>
-	</plugins>
+		<plugins>
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>${mule.maven.plugin.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleversion>4.4.0</muleversion>
+						<username>madhavinagilla1237</username>
+						<password>M@37dhavi</password>
+						<environment>Sandbox</environment>
+						<applicationname>Conjur</applicationname>
+						<businessgroup>Mulesoft</businessgroup>
+						<workerType>Micro</workerType>
+						<workers>1</workers>
+						<objectStoreV2>true</objectStoreV2>
+					</cloudHubDeployment>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 	<pluginRepositories>
 		<pluginRepository>
