@@ -37,6 +37,8 @@ public class ConjurValueClassProcessor implements BeanPostProcessor {
 		Class<?> managedBeanClass = bean.getClass();
 
 		List<Field> fieldList = FieldUtils.getAllFieldsList(managedBeanClass);
+		
+		//LOGGER.info("postProcessBeforeInitialization method*****");
 
 		for (Field field : fieldList) {
 			if (field.isAnnotationPresent(ConjurValue.class)) {
@@ -58,6 +60,7 @@ public class ConjurValueClassProcessor implements BeanPostProcessor {
 				String[] variableId = field.getDeclaredAnnotation(ConjurValues.class).keys();
 				byte[] result;
 				try {
+					LOGGER.info("After calling retriveMultipleSecretsForCustomAnnotation *****"+variableId);
 					result = conjurRetrieveSecretService.retriveMultipleSecretsForCustomAnnotation(variableId);
 					LOGGER.info("After calling retriveMultipleSecretsForCustomAnnotation *****");
 					field.set(bean, result);
@@ -65,6 +68,9 @@ public class ConjurValueClassProcessor implements BeanPostProcessor {
 				} catch (Exception e1) {
 					LOGGER.error(e1.getMessage());
 				}
+			}
+			else {
+				//LOGGER.info("postProcessBeforeInitialization else *****");
 			}
 
 		}

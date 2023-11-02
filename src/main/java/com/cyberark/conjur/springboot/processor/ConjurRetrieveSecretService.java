@@ -31,18 +31,25 @@ public class ConjurRetrieveSecretService {
 
 		Object result = null;
 		StringBuilder kind = new StringBuilder();
-		LOGGER.info("*** inside retriveMultipleSecretsForCustomAnnotation ***");
+		for (String key : keys) {
+
+			LOGGER.info("*** inside retriveMultipleSecretsForCustomAnnotation keys ***"+key);
+			}
+		
 		for (int i = 0; i <= keys.length; i++) {
 			if (i < keys.length - 1) {
+				//kind.append("myConjurAccount:variable:" + keys[i] + ",");
 				kind.append("" + ConjurConstant.CONJUR_ACCOUNT + ":variable:" + keys[i] + ",");
 			} else if (i == keys.length - 1) {
 				kind.append("" + ConjurConstant.CONJUR_ACCOUNT + ":variable:" + keys[i] + "");
 			}
 		}
 		try {
-			LOGGER.info("*** Before calling  getSecrets of retriveMultipleSecretsForCustomAnnotation ***");
+			LOGGER.info("*** Before calling  getSecrets of retriveMultipleSecretsForCustomAnnotation ***"+new String(kind));
+			
+			
 			result = secretsApi.getSecrets(new String(kind));
-			LOGGER.info("*** After calling  getSecrets of retriveMultipleSecretsForCustomAnnotation ***"+result);
+			LOGGER.info("*** After calling  getSecrets of retriveMultipleSecretsForCustomAnnotation result *** "+result);
 		} catch (ApiException e) {
 			LOGGER.error("Status code: " + e.getCode());
 			LOGGER.error("Reason: " + e.getResponseBody());

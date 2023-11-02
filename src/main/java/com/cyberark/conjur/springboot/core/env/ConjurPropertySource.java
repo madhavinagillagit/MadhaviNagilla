@@ -44,12 +44,15 @@ public class ConjurPropertySource extends EnumerablePropertySource<Object> {
 		super(vaultPath + "@" + vaultInfo);
 		this.vaultPath = vaultPath;
 		this.vaultInfo = vaultInfo;
+		LOGGER.info("ConjurPropertySource construcotr ***");
 		List<String> properties = new ArrayList<>();
 		Class<?> annotatedClass = ClassUtils.forName((importingClassMetadata).getClassName(),
 				getClass().getClassLoader());
 		for (Field field : annotatedClass.getDeclaredFields()) {
 			if (field.isAnnotationPresent(Value.class)) {
+				LOGGER.info("In ConjurPropertySource field.isAnnotationPresent(Value.class) *** "+field);
 				String value = field.getAnnotation(Value.class).value();
+				LOGGER.info("In ConjurPropertySource field.isAnnotationPresent(Value.class) *** "+value);
 				properties.add(value);
 			}
 		}
@@ -75,6 +78,7 @@ public class ConjurPropertySource extends EnumerablePropertySource<Object> {
 		if (propertyExists(key)) {
 			key = ConjurConfig.getInstance().mapProperty(key);
 			try {
+				LOGGER.info("ConjurPropertySource getProperty ***");
 				String account = ConjurConnectionManager.getAccount(secretsApi);
 				String secretValue = secretsApi.getSecret(account, ConjurConstant.CONJUR_KIND, vaultPath + key);
 				result = secretValue != null ? secretValue.getBytes() : null;
